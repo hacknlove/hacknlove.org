@@ -119,8 +119,8 @@ const config: SiteConfig = {
   socialLinks: {
     github: 'https://github.com/hacknlove',
     twitter: 'https://x.com/otrestres',
-    instagram: 'https://www.instagram.com/otrestresotrestres',
-    youtube: 'https://www.youtube.com/@otres3',
+   instagram: 'https://www.instagram.com/otrestresotrestres',
+   youtube: 'https://mastodon.social/@otres3',
     linkedin: 'https://www.linkedin.com/in/antonio-fernandez-porrua/',
   },
   // Configuration for Giscus comments.
@@ -128,7 +128,13 @@ const config: SiteConfig = {
   // You'll need a GitHub repository with discussions enabled and the Giscus app installed.
   // Take the values from the generated script tag at https://giscus.app and fill them in here.
   // If you don't want to use Giscus, set this to undefined.
-  giscus: undefined,
+  giscus: {
+    repo: "hacknlove/hacknlove.org",
+    repoId: "R_kgDOPWkGuw",
+    category: "Announcements",
+    categoryId: "DIC_kwDOPWkGu84Ctqol",
+    reactionsEnabled: true,
+  },
 }
 
 export default config 

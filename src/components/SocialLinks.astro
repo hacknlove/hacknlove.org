@@ -50,6 +50,19 @@ const { socialLinks } = Astro.props
     )
   }
   {
+    socialLinks.instagram && (
+      <a
+        href={socialLinks.instagram}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="social-link"
+      >
+        <span class="sr-only">Instagram</span>
+        <Icon name="instagram" class="size-7" />
+      </a>
+    )
+  }
+  {
     socialLinks.linkedin && (
       <a
         href={socialLinks.linkedin}
@@ -59,6 +72,19 @@ const { socialLinks } = Astro.props
       >
         <span class="sr-only">LinkedIn</span>
         <Icon name="linkedin" class="size-7" />
+      </a>
+    )
+  }
+  {
+    socialLinks.youtube && (
+      <a
+        href={socialLinks.youtube}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="social-link"
+      >
+        <span class="sr-only">YouTube</span>
+        <Icon name="youtube" class="size-7" />
       </a>
     )
   }

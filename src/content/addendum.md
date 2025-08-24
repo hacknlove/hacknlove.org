@@ -1,13 +1,8 @@
 ---
 ---
 
-## About Hack n Love
+## About hacknlove
 
-We're passionate developers who love sharing knowledge and building community through code. This blog is our way of documenting our learning journey and helping others along the way.
+En resumen, lo que la experiencia enseña es que en el mundo real, el idealismo fracasa y el pragmatismo funciona.
 
-### Connect With Us
 
-- 🐙 [GitHub](https://github.com/hacknlove)
-- 📧 [Email](mailto:hello@hacknlove.org)
-
-Thanks for reading! ❤️ 
