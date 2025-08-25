@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://hacknlove.org/sitemap-index.xml
