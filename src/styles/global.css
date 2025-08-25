@@ -300,7 +300,7 @@ article img {
   }
 
   hr {
-    @apply h-0.5 my-16 bg-[var(--theme-hr)] border-none rounded-xl;
+    @apply h-0.5 my-16 bg-[var(--theme-accent)] border-none rounded-xl;
   }
 
   blockquote {
