@@ -120,7 +120,7 @@ const config: SiteConfig = {
     github: 'https://github.com/hacknlove',
     twitter: 'https://x.com/otrestres',
    instagram: 'https://www.instagram.com/otrestresotrestres',
-   youtube: 'https://mastodon.social/@otres3',
+   youtube: 'https://youtube.com/@otres3',
     linkedin: 'https://www.linkedin.com/in/antonio-fernandez-porrua/',
   },
   // Configuration for Giscus comments.
