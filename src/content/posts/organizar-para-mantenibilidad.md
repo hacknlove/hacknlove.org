@@ -1,100 +1,100 @@
 ---
-title: "¿Cómo organizar el código de cara a la mantenibilidad? A grandes rasgos."
+title: "¿Cómo organizar el código para la mantenibilidad? A grandes rasgos."
 published: 2025-08-01
-description: "¿Cómo organizar el código? A grandes rasgos."
+description: "Reflexión teórica sobre cómo organizar el código con la mantenibilidad en mente."
 author: "hacknlove"
-tags: ["Arquitectura", "teoría"]
+tags: ["Arquitectura", "Teoría"]
 draft: false
 ---
 
-Este artículo va a analizar este tema desde una perspectiva teórica de brocha muy gorda, en lo que respecta a la mantenibilidad del código.
+Este artículo aborda la organización del código desde una perspectiva amplia y teórica, centrándonos en la **mantenibilidad** como criterio de calidad.
 
 ## Presentación (La realidad)
 
-Nuestro trabajo consiste en organizar recursos para satisfacer requisitos.
+En esencia, nuestro trabajo consiste en **organizar recursos para satisfacer requisitos**.  
+Nada más, pero tampoco nada menos.
 
-Eso es todo lo que hacemos.
+### Los requisitos
+Los requisitos responden a necesidades de negocio y llegan desde los *product owners*. Ejemplos típicos:
 
-### Los requisitos:
+* Registrar un usuario  
+* Publicar un producto  
+* Realizar una búsqueda  
+* Añadir un producto al carrito  
+* Dejar un comentario  
 
-Los requisitos responden a necesidades de negocio, y nos los dan los product owners.
+### Los recursos
+Para cubrir esos requisitos disponemos de recursos de distinta naturaleza.
 
-* registrar un usuario
-* publicar un producto
-* hacer una búsqueda
-* Añadir un producto a un carrito
-* dejar un comentario
+**Tecnológicos:**
+* Hardware  
+* Servidores  
+* Bases de datos  
+* Servicios  
+* Protocolos de comunicación  
+* Clientes  
+* Interfaces  
+* Lenguajes de programación  
+* Frameworks, librerías y herramientas  
 
-### Los Recursos
-
-Los recursos que organizamos son principalmente de tipo tecnológico: 
-
-* Hardware
-* servidores
-* Bases de datos
-* servicios
-* protocolos de comunicación
-* Clientes
-* Interfaces
-* lenguajes de programación
-* frameworks
-* bibliotecas
-* herramientas
-  
-pero también nosotros mismos somos parte de los recursos que tenemos que organizar:
-* equipos de desarrolladores
-* roles (desarrolladores, QAs, devops, etc.)
-* documentación
-* gestión de proyectos
-
+**Humanos y organizativos:**
+* Equipos de desarrollo  
+* Roles (desarrolladores, QAs, DevOps, etc.)  
+* Documentación  
+* Gestión de proyectos  
 
 ## Nudo (El conflicto)
 
-Los recursos tecnológicos nos ofrecen horizontalidades, muchas veces apiladas en capas y que son necesarias para satisfacer múltiples requisitos de negocio; mientras que los requisitos de negocio se nos presentan como verticalidades y requieren de ḿultiples capas tecnológicas.
+Los recursos tecnológicos pueden imaginarse como **capas horizontales** que sirven a múltiples requisitos.  
+Los requisitos de negocio, en cambio, se nos presentan como **verticalidades** que atraviesan varias capas a la vez.
 
-Independientemente de los paradigmas y las arquitecturas que se utilicen, solucionar el problema primario (satisfacer los requisitos de negocio con los recursos tecnológicos) es sencillo.
+El problema primario —satisfacer un requisito con los recursos disponibles— suele ser relativamente sencillo.  
+El verdadero reto está en el **problema secundario**: elegir, entre todas las soluciones posibles, la que mejor equilibre calidad y sostenibilidad a largo plazo.
 
-El problema secundario es el que resulta más complicado, y a la postre más relevante para el éxito a largo plazo de la organización: encontrar de todas las soluciones primarias posibles, cuál ofrece la mayor calidad.
+### Criterios de calidad
+Son propiedades deseables del sistema, aunque no respondan directamente a un requisito de negocio:
 
-### Nuestros criterios de calidad:
+* Rendimiento  
+* Escalabilidad  
+* Seguridad  
+* Usabilidad
+* Velocidad de desarrollo
+* **Mantenibilidad**  
 
-Los critarios de calidad son características que desamos que tenga nuestro sistema, aunque no sean directamente necesarias para satisfacer los requisitos de negocio.
-
-* rendimiento
-* escalabilidad
-* seguridad
-* usabilidad que concierne a la organización del código, se
-* mantenibilidad
-
-Puede haber también criterios de calidad de negocio, que sean directamente necesarios para satisfacer los requisitos de negocio, pero en tal caso deben considerarse como requisitos de negocio.
+Cuando un criterio de calidad es imprescindible para satisfacer el negocio (ej. disponibilidad 24/7 en un e-commerce global), deja de ser “extra” y pasa a ser un requisito de negocio en sí mismo.
 
 ## Desenlace (La solución)
 
-Cualquier solución a este problema se va a situar el algún punto entre organización puramente horizontal y organización puramente vertical.
+Toda organización del código se sitúa en algún punto entre dos extremos:
 
-Y tanto ambas soluciones, como todos los puntos intermedios, tienen sus ventajas y sus inconvenientes.
+* **Horizontalidad pura**: optimiza las tareas horizontales (ej. casmbiar el motor de una base de datos).  
+* **Verticalidad pura**: optimiza las tareas verticales (ej. añadir la opción de compartir un carrito).  
 
-No existe una solución práctica genérica que siempre sea la mejor, pero la experiencia nos enseña que ciertas decisiones tienen a ciertas consecuencia.
+No existe una receta universal: cada decisión implica ventajas e inconvenientes.
 
-Supongamos que todas los los puntos de un extremo a otro son posibles, e idempotentes en lo que corresponde al resto de criterios de calidad.
-
-Cuanto más horizontal sea la organización, más fácil será abordar tareas de tipo horizontal, como por ejemplo actualizar la versión de la base de datos.
-
-Cuanto más vertical sea la organización, más fácil será abordar tareas de tipo vertical, como por ejemplo añadir la posibilidad de compartir un carrito de compras.
-
-Mi preferencia es tener equipos muy verticales (formados por PO, QAs, diseñadores, frontend, backend, devops ) que trabajan en un código organizado de forma muy vertical (locaLity of behavior).
-
-Y esa es mi preferencia porque tal configuración facilita las tareas de tipo vertical, que son el tipo de tareas con las que estaremos trabajando el 99% del tiempo.
+En mi experiencia, la apuesta más efectiva es una **organización vertical del código** (*locality of behavior*), con **equipos multifuncionales** (PO, QA, diseño, frontend, backend, DevOps).  
+¿Por qué? Porque la inmensa mayoría de las tareas (el famoso 99%) son verticales, y es ahí donde más conviene optimizar.
 
 ## Plot twist (La sorpresa)
 
-El problema es que ese 1% de tareas muy horizontales, como por ejemplo actualizar la versión de la base de datos, suelen ser muy grandes, muy complejas y muy críticas, por lo que mucha gente comete el error de construir organizaciones horizontales para poder abordarlas con mayor facilidad; a pesar de que eso les obligará a pagar un peaje extra en el 99% restante de las tareas.
-
-## Conclusión (La consistencia al rescate):
-
-Si en una organización vertical, hay suficiente consistencia horizontal, ese 1% de tareas muy horizontales se puede abordar con relativa facilidad.
-
-Por mucho que nos preocupen las grandes tareas horizontales que antes o después tendremos que afrontar, no debemos renunciar a organizar nuestro código y nuestros equipos de forma vertical, sino que debemos dotar a nuestras organizaciones de suficiente consistencia horizontal como para las tareas horizontales puedan realizarse sin demasiado sufrimiento.
+Ese 1% de tareas horizontales —como migrar una base de datos o actualizar un framework crítico— son desproporcionadamente **grandes, complejas y críticas**.  
+Este hecho suele llevar a muchas organizaciones a adoptar estructuras excesivamente horizontales, pagando después un peaje innecesario en el 99% de tareas habituales.
 
 
-Muchas veces, se intenta lo contrario: organizaciones muy horizontales con consistencia vertical. Desde mi punto de vista, si bien no es del todo un desastre y puede tener sentido en algunos casos, por norma general, y basándome en mi experiencia, recomiendo la organización vertical con consistencia horizontal.
+
+## Conclusión (La consistencia al rescate)
+
+La clave está en una **organización vertical con consciencia horizontal**.
+Una organización vertical puede manejar sin grandes dramas ese 1% de tareas horizontales si se asegura suficiente **consistencia horizontal**: estándares claros, convenciones compartidas y buenas prácticas transversales.
+
+Por el contrario, aunque una organización horizontal con consistencia vertical es posible y en ciertos contextos puede tener sentido, en general acaba generando más fricción que beneficios.
+
+La superioridad de la organización vertical se aprecia con claridad en los **casos extremos**:
+
+* **Extremo vertical:** las capas horizontales de cada proyecto son completamente independientes entre sí, lo que reduce de forma natural el tamaño de ese 1% de tareas horizontales (*divide y vencerás*). Incluso en este escenario recomiendo mantener consistencia horizontal, salvo que exista una razón muy clara para no hacerlo.
+
+* **Extremo horizontal:** no aporta ninguna ventaja en las tareas verticales —que son la inmensa mayoría— y, en cambio, multiplica los inconvenientes.
+
+
+**Mi recomendación, basada en la experiencia:**  
+👉 Optar por una **organización vertical** del código y de los equipos, reforzada con la **consistencia horizontal** necesaria para no sufrir en las tareas transversales.
